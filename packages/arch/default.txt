@@ -1,0 +1,7 @@
+curl
+wget
+git
+zsh
+stow
+neovim
+tmux
