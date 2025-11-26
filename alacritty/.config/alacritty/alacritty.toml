@@ -1,0 +1,38 @@
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[window]
+dynamic_padding = false
+dynamic_title = false
+opacity = 0.95
+title = ""
+
+[window.dimensions]
+columns = 128
+lines = 48
+
+[window.padding]
+x = 18
+y = 16
+
+[general]
+import = ["/home/fredrik/.config/alacritty/catppuccin/catppuccin-mocha.yml"]
+
+[terminal]

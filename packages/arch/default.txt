@@ -1,7 +1,11 @@
 curl
 wget
 git
-zsh
 stow
+
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+
 neovim
 tmux
