@@ -1,21 +1,79 @@
-require "core"
+-- Packages
+vim.pack.add{
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/catppuccin/nvim' },
+-- Completion
+  { src = 'https://github.com/hrsh7th/nvim-cmp' },
+  { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+  { src = 'https://github.com/hrsh7th/cmp-buffer' },
+  { src = 'https://github.com/hrsh7th/cmp-path' },
+}
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+-- Tabs
+vim.opt.smarttab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
-if custom_init_path then
-  dofile(custom_init_path)
-end
+-- Line number
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-require("core.utils").load_mappings()
+-- Clipboard
+vim.opt.clipboard = 'unnamedplus'
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+-- Keybinds
+vim.g.mapleader = ' '
+vim.keymap.set('n', '<leader>hc', ':checkhealth ', { noremap = true, silent = false, desc = 'Prefill :checkhealth' })
 
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
+-- Theme
+require('catppuccin').setup({
+  flavour = 'mocha', -- latte, frappe, macchiato, mocha
+  integrations = {
+    treesitter = true,
+    lsp = true,
+  },
+})
+vim.cmd('colorscheme catppuccin')
 
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
+-- LSP
+vim.lsp.config['lua_ls'] = {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }, -- Fixes “Undefined global 'vim'”
+      },
+    },
+  }
+}
+
+vim.lsp.enable({'pyright', 'lua_ls', 'tsserver'})
+
+-- Treesitter
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { 'lua', 'python', 'typescript', 'markdown', 'markdown_inline' },
+  sync_install = false,
+  highlight = {
+    enable = true,
+  },
+}
+
+-- Autocomplete
+local cmp = require('cmp')
+cmp.setup({
+  mapping = {
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+  },
+})
+
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+})

@@ -2,6 +2,9 @@
 # ZSHRC — interactive shell settings
 # ==========================================
 
+# Zsh
+alias zshc="nvim ~/dotfiles/zsh/.zshrc"
+
 # Oh-My-Zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
@@ -11,13 +14,14 @@ source $ZSH/oh-my-zsh.sh
 # Shell options
 setopt HIST_IGNORE_SPACE
 
-# Aliases
-
 # Git
 alias standup="git log --since='yesterday.midnight' --all --no-merges --oneline --author=fvaagaard@gmail.com"
 
 # Neovim
+PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 alias vim=nvim
+alias nv=nvim
+alias nvc="nvim ~/dotfiles/nvim/.config/nvim/init.lua"
 
 # TMUX
 alias ta="$HOME/bin/tmuxdefault.sh"
@@ -48,9 +52,6 @@ alias hn="helm -n scout-portal"
 # Stern completion
 #source <(stern --completion=zsh)
 
-# Console Ninja
-#PATH=~/.console-ninja/.bin:$PATH
-
 # Python / Conda (conda init block can remain here)
 #__conda_setup="$('/home/fredrik/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
@@ -64,3 +65,5 @@ alias hn="helm -n scout-portal"
 #fi
 #unset __conda_setup
 
+# Scout
+alias ops="~/workspace/scout-portal/scripts/operations/scout_ops"
