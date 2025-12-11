@@ -6,6 +6,8 @@ stow
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+zsh-autocomplete
 
 neovim
 tmux
+ghostty

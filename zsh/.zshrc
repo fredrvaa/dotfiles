@@ -11,6 +11,15 @@ ZSH_THEME="robbyrussell"
 plugins=(git asdf zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 source $ZSH/oh-my-zsh.sh
 
+# Keybinds
+## zsh-autocomplete
+### Tab selects in menu
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+### Arrow keys move cursor on command line
+bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+
 # Shell options
 setopt HIST_IGNORE_SPACE
 
@@ -37,7 +46,7 @@ alias g="gemini"
 alias gp="gemini -p"
 
 # Kubectl / Helm
-#source <(kubectl completion zsh)
+source <(kubectl completion zsh)
 alias docker-compose="docker compose"
 alias k=kubectl
 alias kd="kubectl describe"

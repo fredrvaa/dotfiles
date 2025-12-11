@@ -1,0 +1,10 @@
+# Fonts
+font-family = "JetBrainsMono Nerd Font"
+
+# Window
+window-width = 128
+window-height = 48
+background-opacity = 0.9
+
+# Theme
+theme = catppuccin-mocha.conf

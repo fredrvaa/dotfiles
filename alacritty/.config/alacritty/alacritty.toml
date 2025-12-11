@@ -1,4 +1,3 @@
-
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
@@ -33,6 +32,6 @@ x = 18
 y = 16
 
 [general]
-import = ["/home/fredrik/.config/alacritty/catppuccin/catppuccin-mocha.yml"]
+import = ["$HOME/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 
 [terminal]
