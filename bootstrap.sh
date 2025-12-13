@@ -9,6 +9,7 @@ stow nvim
 stow tmux
 stow hypr
 stow rofi
+stow waybar
 
 # Stow scripts and binaries
 echo "Stowing scripts and binaries..."
