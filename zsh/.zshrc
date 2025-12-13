@@ -27,10 +27,13 @@ setopt HIST_IGNORE_SPACE
 alias standup="git log --since='yesterday.midnight' --all --no-merges --oneline --author=fvaagaard@gmail.com"
 
 # Neovim
-PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+PATH="$PATH:$HOME/.local/share/nvim-linux-x86_64/bin"
 alias vim=nvim
 alias nv=nvim
 alias nvc="nvim ~/dotfiles/nvim/.config/nvim/init.lua"
+
+# Hyprland
+alias hc='vim /home/fredrik/.config/hypr/hyprland.conf'
 
 # TMUX
 alias ta="$HOME/bin/tmuxdefault.sh"
@@ -46,7 +49,7 @@ alias g="gemini"
 alias gp="gemini -p"
 
 # Kubectl / Helm
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 alias docker-compose="docker compose"
 alias k=kubectl
 alias kd="kubectl describe"
@@ -73,6 +76,11 @@ alias hn="helm -n scout-portal"
 #    fi
 #fi
 #unset __conda_setup
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Scout
 alias ops="~/workspace/scout-portal/scripts/operations/scout_ops"

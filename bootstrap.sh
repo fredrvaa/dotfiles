@@ -7,6 +7,7 @@ stow ghostty
 stow zsh
 stow nvim
 stow tmux
+stow hypr
 
 # Stow scripts and binaries
 echo "Stowing scripts and binaries..."
