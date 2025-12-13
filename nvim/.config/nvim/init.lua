@@ -46,6 +46,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Keybinds
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>hc", ":checkhealth ", { noremap = true, silent = false, desc = "Prefill :checkhealth" })
+vim.keymap.set("n", "<C-k>", ":normal gcc<CR>", { desc = "Toggle line comment" })
 
 -- Theme
 require("catppuccin").setup({
@@ -91,9 +92,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 -- NvimTree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-local nvimtree = require("nvim-tree")
-nvimtree.setup()
-vim.keymap.set("n", "<leader>t", nvimtree.api.tree.toggle(), { desc = "Toggle NvimTree" })
+require("nvim-tree").setup()
+vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
 -- Autocomplete
 local cmp = require("cmp")
