@@ -9,7 +9,8 @@
     grey: #6c7086;
 
     width: 450px;
-    font: "Hack Nerd Font 14";
+    /* font: "Hack Nerd Font 14"; */
+    font: "JetBrainsMono Nerd Font Mono 10";
 }
 
 element-text, element-icon , mode-switcher {
@@ -85,7 +86,7 @@ mode-switcher {
 }
 
 button {
-    padding: 10px;
+    padding: 5px;
     background-color: @bg-col-light;
     text-color: @grey;
     vertical-align: 0.5; 
