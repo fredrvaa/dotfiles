@@ -44,16 +44,32 @@ fi
 # Ensure ZSH paths exist
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-# Install zsh plugins
+# Install zsh plugins if missing
 echo "Installing zsh plugins..."
-git clone https://github.com/zsh-users/zsh-autosuggestions.git \
-  "$ZSH_CUSTOM/plugins/zsh-autosuggestions" || true
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+    "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+else
+  echo "zsh-autosuggestions already installed."
+fi
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-  "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" || true
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+else
+  echo "zsh-syntax-highlighting already installed."
+fi
 
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
-  "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" || true
+if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ]; then
+  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
+    "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
+else
+  echo "fast-syntax-highlighting already installed."
+fi
 
-git clone --depth 1 https://github.com/marlonrichert/zsh-autocomplete.git \
-  "$ZSH_CUSTOM/plugins/zsh-autocomplete" || true
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autocomplete" ]; then
+  git clone --depth 1 https://github.com/marlonrichert/zsh-autocomplete.git \
+    "$ZSH_CUSTOM/plugins/zsh-autocomplete"
+else
+  echo "zsh-autocomplete already installed."
+fi
