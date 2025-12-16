@@ -10,6 +10,7 @@ stow tmux
 stow hypr
 stow rofi
 stow waybar
+stow yazi
 
 # Stow scripts and binaries
 echo "Stowing scripts and binaries..."
