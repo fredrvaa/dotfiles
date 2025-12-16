@@ -8,3 +8,6 @@ background-opacity = 0.9
 
 # Theme
 theme = catppuccin-mocha.conf
+
+# Auto-close
+confirm-close-surface=false
