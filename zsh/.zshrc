@@ -23,22 +23,14 @@ bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
 # Shell options
 setopt HIST_IGNORE_SPACE
 
-# Git
-alias standup="git log --since='yesterday.midnight' --all --no-merges --oneline --author=fvaagaard@gmail.com"
-
 # Neovim
 PATH="$PATH:$HOME/.local/share/nvim-linux-x86_64/bin"
 alias vim=nvim
 alias nv=nvim
 alias nvc="nvim ~/dotfiles/nvim/.config/nvim/init.lua"
 
-# Hyprland
-alias hc='vim /home/fredrik/.config/hypr/hyprland.conf'
-
 # TMUX
-alias ta="$HOME/bin/tmuxdefault.sh"
 alias td="tmux detach"
-alias tk="tmux kill-session -t scout-portal-dev"
 
 # Github Copilot CLI
 alias ghe="gh copilot explain"
@@ -53,13 +45,9 @@ alias gp="gemini -p"
 alias docker-compose="docker compose"
 alias k=kubectl
 alias kd="kubectl describe"
-alias kn="kubectl -n scout-portal"
 alias kc="kubectl config get-contexts"
-alias kcs="kubectl config use-context AKS-Staging && kubectl config get-contexts"
-alias kcp="kubectl config use-context AKS-Prod && kubectl config get-contexts"
 
 alias h="helm"
-alias hn="helm -n scout-portal"
 
 # Stern completion
 #source <(stern --completion=zsh)
@@ -81,6 +69,3 @@ alias hn="helm -n scout-portal"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Scout
-alias ops="~/workspace/scout-portal/scripts/operations/scout_ops"
