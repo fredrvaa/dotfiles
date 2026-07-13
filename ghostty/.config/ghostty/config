@@ -9,5 +9,8 @@ background-opacity = 0.9
 # Theme
 theme = catppuccin-mocha.conf
 
+# Shell
+command = /usr/bin/zsh
+
 # Auto-close
 confirm-close-surface=false
